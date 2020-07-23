@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
+import Pengaduan from '../components/Pengaduan';
 
 export class home extends Component {
   state = {
@@ -10,7 +11,6 @@ export class home extends Component {
     axios
       .get('/pengaduan')
       .then((res) => {
-        console.log(res.data);
         this.setState({
           pengaduan: res.data,
         });
@@ -19,17 +19,19 @@ export class home extends Component {
   }
   render() {
     let recentPengaduanMarkup = this.state.pengaduan ? (
-      this.state.pengaduan.map((pengaduan) => <p>{pengaduan.body}</p>)
+      this.state.pengaduan.map((pengaduan) => (
+        <Pengaduan key={pengaduan.pengaduanId} pengaduan={pengaduan} />
+      ))
     ) : (
       <p>Loading...</p>
     );
     return (
-      <Grid container spacing={16}>
+      <Grid container spacing={10}>
         <Grid item sm={8} xs={12}>
           {recentPengaduanMarkup}
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>content...</p>
+          <p>profile...</p>
         </Grid>
       </Grid>
     );

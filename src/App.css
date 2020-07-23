@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  margin: 80px auto 0 auto;
+  margin: 90px auto 0 auto;
   max-width: 1200px;
 }
 
@@ -15,6 +15,9 @@ body {
   margin: auto;
 }
 
+.nav-container svg {
+  color: #fff;
+}
 a {
   text-decoration: none;
 }
