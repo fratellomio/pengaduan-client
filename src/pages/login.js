@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import icon from '../images/icon.png';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 //MUI Stuff
 import Grid from '@material-ui/core/Grid';
@@ -50,7 +49,6 @@ class login extends Component {
       UI: { loading },
     } = this.props;
     const { errors } = this.state;
-    console.log(errors);
     return (
       <Grid container className={classes.form}>
         <Grid item sm />
