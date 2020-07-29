@@ -49,7 +49,7 @@ const styles = (theme) => ({
   },
 });
 
-const ScreamSkeleton = (props) => {
+const PengaduanSkeleton = (props) => {
   const { classes } = props;
 
   const content = Array.from({ length: 5 }).map((item, index) => (
@@ -68,8 +68,8 @@ const ScreamSkeleton = (props) => {
   return <Fragment>{content}</Fragment>;
 };
 
-ScreamSkeleton.propTypes = {
+PengaduanSkeleton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ScreamSkeleton);
+export default withStyles(styles)(PengaduanSkeleton);

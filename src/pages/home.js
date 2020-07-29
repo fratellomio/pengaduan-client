@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+
 import Pengaduan from '../components/Pengaduan';
 import Profile from '../components/Profile';
+import PengaduanSkeleton from '../util/PengaduanSkeleton';
+
+import { connect } from 'react-redux';
+import { getSemuaPengaduan } from '../redux/actions/dataActions';
 
 export class home extends Component {
-  state = {
-    pengaduan: null,
-  };
   componentDidMount() {
-    axios
-      .get('/pengaduan')
-      .then((res) => {
-        this.setState({
-          pengaduan: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
+    this.props.getSemuaPengaduan();
   }
   render() {
-    let recentPengaduanMarkup = this.state.pengaduan ? (
-      this.state.pengaduan.map((pengaduan) => (
+    const { semuaPengaduan, loading } = this.props.data;
+    let recentPengaduanMarkup = !loading ? (
+      semuaPengaduan.map((pengaduan) => (
         <Pengaduan key={pengaduan.pengaduanId} pengaduan={pengaduan} />
       ))
     ) : (
@@ -39,4 +35,13 @@ export class home extends Component {
   }
 }
 
-export default home;
+home.propTypes = {
+  getSemuaPengaduan: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
+
+export default connect(mapStateToProps, { getSemuaPengaduan })(home);
