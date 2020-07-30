@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 
-import Pengaduan from '../components/Pengaduan';
-import Profile from '../components/Profile';
+import Pengaduan from '../components/pengaduan/Pengaduan';
+import Profile from '../components/profile/Profile';
 import PengaduanSkeleton from '../util/PengaduanSkeleton';
 
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ export class home extends Component {
         <Pengaduan key={pengaduan.pengaduanId} pengaduan={pengaduan} />
       ))
     ) : (
-      <p>Loading...</p>
+      <PengaduanSkeleton />
     );
     return (
       <Grid container spacing={10}>

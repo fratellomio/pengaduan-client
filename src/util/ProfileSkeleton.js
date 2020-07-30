@@ -10,10 +10,10 @@ import LinkIcon from '@material-ui/icons/Link';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 
 const styles = (theme) => ({
-  ...theme,
+  ...theme.forPages,
   handle: {
     height: 20,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'white',
     width: 60,
     margin: '0 auto 7px auto',
   },

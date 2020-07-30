@@ -35,7 +35,7 @@ export default function (state = initialState, action) {
       };
     case LIKE_PENGADUAN:
     case UNLIKE_PENGADUAN:
-      let index = state.semuaPengaduan.findIndex(
+      var index = state.semuaPengaduan.findIndex(
         (pengaduan) => pengaduan.pengaduanId === action.payload.pengaduanId
       );
       state.semuaPengaduan[index] = action.payload;

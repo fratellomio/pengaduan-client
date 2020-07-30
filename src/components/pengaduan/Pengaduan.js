@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import DeletePengaduan from './DeletePengaduan';
+import PengaduanDialog from './PengaduanDialog';
+import LikeButton from './LikeButton';
 //Material UI Stuff
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,11 +15,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 // icons
 import ChatIcon from '@material-ui/icons/Chat';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 import { connect } from 'react-redux';
-import { likePengaduan, unlikePengaduan } from '../redux/actions/dataActions';
+import {
+  likePengaduan,
+  unlikePengaduan,
+} from '../../redux/actions/dataActions';
 
 const style = {
   card: {
@@ -71,24 +74,10 @@ class Pengaduan extends Component {
         credentials: { handle },
       },
     } = this.props;
-    const likeButton = !authenticated ? (
-      <MyButton tip='like'>
-        <Link to='/login'>
-          <FavoriteBorder color='primary' />
-        </Link>
-      </MyButton>
-    ) : this.likedPengaduan() ? (
-      <MyButton tip='undo like' onClick={this.unlikePengaduan}>
-        <FavoriteIcon color='primary' />
-      </MyButton>
-    ) : (
-      <MyButton tip='like' onClick={this.likePengaduan}>
-        <FavoriteBorder color='primary' />
-      </MyButton>
-    );
+
     const deleteButton =
       authenticated && userHandle === handle ? (
-        <DeletePengaduan pengaduanid={pengaduanId} />
+        <DeletePengaduan pengaduanId={pengaduanId} />
       ) : null;
     return (
       <Card className={classes.card}>
@@ -111,12 +100,17 @@ class Pengaduan extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant='body1'>{body}</Typography>
-          {likeButton}
-          <span>{likeCount} likes</span>
+          <LikeButton pengaduanId={pengaduanId} />
+          <span>{likeCount} dukungan</span>
           <MyButton tip='comments'>
             <ChatIcon color='primary' />
           </MyButton>
-          <span>{commentCount} comment</span>
+          <span>{commentCount} komentar</span>
+          <PengaduanDialog
+            pengaduanId={pengaduanId}
+            userHandle={userHandle}
+            openDialog={this.props.openDialog}
+          />
         </CardContent>
       </Card>
     );
@@ -129,6 +123,7 @@ Pengaduan.propTypes = {
   user: PropTypes.object.isRequired,
   pengaduan: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  openDialog: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({

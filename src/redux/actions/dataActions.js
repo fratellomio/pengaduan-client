@@ -123,13 +123,13 @@ export const getUserData = (userHandle) => (dispatch) => {
     .get(`/user/${userHandle}`)
     .then((res) => {
       dispatch({
-        type: SET_PENGADUAN,
+        type: SET_SEMUA_PENGADUAN,
         payload: res.data.pengaduan,
       });
     })
     .catch(() => {
       dispatch({
-        type: SET_PENGADUAN,
+        type: SET_SEMUA_PENGADUAN,
         payload: null,
       });
     });
