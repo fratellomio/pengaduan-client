@@ -110,8 +110,10 @@ class Profile extends Component {
         </Paper>
       ) : (
         <Paper className='classes.paper'>
-          <Typography variant='body1' align='center' gutterBottom='true'>
-            Silahkan masuk atau mendaftar untuk melihat profil
+          <Typography variant='body1' align='center' gutterBottom={true}>
+            <br />
+            Silahkan masuk atau mendaftar untuk melihat profil dan mengirim
+            pengaduan
           </Typography>
           <div className={classes.buttons}>
             <Button

@@ -35,7 +35,6 @@ class user extends Component {
   render() {
     const { semuaPengaduan, loading } = this.props.data;
     const { pengaduanIdParam } = this.state;
-    console.log(this.props.data);
     const semuaPengaduanMarkup = loading ? (
       <PengaduanSkeleton />
     ) : semuaPengaduan === null ? (
