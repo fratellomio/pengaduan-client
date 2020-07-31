@@ -22,7 +22,9 @@ export const loginUser = (userData, history) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: SET_ERRORS,
-        payload: err.response.data,
+        payload: err.response.data.errors
+          ? err.response.data.errors
+          : err.response.data,
       });
     });
 };
