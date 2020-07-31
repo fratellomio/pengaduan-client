@@ -39,10 +39,10 @@ class signup extends Component {
       loading: true,
     });
     const newUserData = {
+      handle: this.state.handle,
       email: this.state.email,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
-      handle: this.state.handle,
     };
     this.props.signupUser(newUserData, this.props.history);
   };
@@ -63,9 +63,22 @@ class signup extends Component {
         <Grid item sm>
           <img src={icon} alt='icon' className={classes.image} />
           <Typography variant='h2' className={classes.pageTitle}>
-            signup
+            Daftar
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
+            <TextField
+              variant='outlined'
+              id='handle'
+              name='handle'
+              type='text'
+              label='Nama'
+              className={classes.textField}
+              helperText={errors.handle}
+              error={!!errors.handle}
+              value={this.state.handle}
+              onChange={this.handleChange}
+              fullWidth
+            />
             <TextField
               variant='outlined'
               id='email'
@@ -99,24 +112,11 @@ class signup extends Component {
               id='confirmPassword'
               name='confirmPassword'
               type='password'
-              label='Confirm Password'
+              label='Ulangi Password'
               className={classes.textField}
               helperText={errors.confirmPassword}
               error={!!errors.confirmPassword}
               value={this.state.confirmPassword}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            <TextField
-              variant='outlined'
-              id='handle'
-              name='handle'
-              type='text'
-              label='Handle'
-              className={classes.textField}
-              helperText={errors.handle}
-              error={!!errors.handle}
-              value={this.state.handle}
               onChange={this.handleChange}
               fullWidth
             />
@@ -136,15 +136,14 @@ class signup extends Component {
               className={classes.button}
               disabled={loading}
             >
-              signup
+              Daftar
               {loading && (
                 <CircularProgress size={30} className={classes.progress} />
               )}
             </Button>
             <br />
             <small>
-              Silahkan <Link to='/signup'> signup </Link> jika tidak memiliki
-              akun
+              Silahkan <Link to='/login'> masuk </Link> jika sudah memiliki akun
             </small>
           </form>
         </Grid>

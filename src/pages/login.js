@@ -55,7 +55,7 @@ class login extends Component {
         <Grid item sm>
           <img src={icon} alt='icon' className={classes.image} />
           <Typography variant='h2' className={classes.pageTitle}>
-            Login
+            Masuk
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField
@@ -102,14 +102,15 @@ class login extends Component {
               className={classes.button}
               disabled={loading}
             >
-              Login
+              Masuk
               {loading && (
                 <CircularProgress size={30} className={classes.progress} />
               )}
             </Button>
             <br />
             <small>
-              Silahkan <Link to='/login'> login </Link> jika sudah memiliki akun
+              Silahkan <Link to='/signup'> daftar </Link> jika tidak memiliki
+              akun
             </small>
           </form>
         </Grid>

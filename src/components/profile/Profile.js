@@ -100,7 +100,7 @@ class Profile extends Component {
                 </Fragment>
               )}
               <CalendarToday color='primary' />{' '}
-              <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
+              <span>Bergabung {dayjs(createdAt).format('MMM YYYY')}</span>
             </div>
             <MyButton tip='Keluar' onClick={this.handleLogout}>
               <KeyboardReturn color='primary' />
@@ -110,8 +110,8 @@ class Profile extends Component {
         </Paper>
       ) : (
         <Paper className='classes.paper'>
-          <Typography variant='body2' align='center'>
-            No profile found, please login again
+          <Typography variant='body1' align='center' gutterBottom='true'>
+            Silahkan masuk atau mendaftar untuk melihat profil
           </Typography>
           <div className={classes.buttons}>
             <Button
@@ -120,7 +120,7 @@ class Profile extends Component {
               component={Link}
               to='/login'
             >
-              Login
+              Masuk
             </Button>
             <Button
               variant='contained'
@@ -128,13 +128,13 @@ class Profile extends Component {
               component={Link}
               to='/signup'
             >
-              Signup
+              Daftar
             </Button>
           </div>
         </Paper>
       )
     ) : (
-      <p>loading...</p>
+      <p>Memuat Profil</p>
     );
 
     return profileMarkup;

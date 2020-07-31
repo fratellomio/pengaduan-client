@@ -67,7 +67,7 @@ class EditDetails extends Component {
     return (
       <Fragment>
         <MyButton
-          tip='Edit Details'
+          tip='Ubah detail pengguna'
           onClick={this.handleOpen}
           btnClassName={classes.button}
         >
@@ -88,7 +88,7 @@ class EditDetails extends Component {
                 label='Bio'
                 multiline
                 rows='3'
-                placeholder='A short bio about yourself'
+                placeholder='Biodata diri'
                 className={classes.textField}
                 value={this.state.bio}
                 onChange={this.handleChange}
@@ -98,7 +98,7 @@ class EditDetails extends Component {
                 name='website'
                 tpye='text'
                 label='Website'
-                placeholder='Your website'
+                placeholder='Alamat Website'
                 className={classes.textField}
                 value={this.state.website}
                 onChange={this.handleChange}
@@ -108,7 +108,7 @@ class EditDetails extends Component {
                 name='location'
                 tpye='text'
                 label='Location'
-                placeholder='Where you live'
+                placeholder='Alamat'
                 className={classes.textField}
                 value={this.state.location}
                 onChange={this.handleChange}
