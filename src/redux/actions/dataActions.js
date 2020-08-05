@@ -73,7 +73,6 @@ export const likePengaduan = (pengaduanId) => (dispatch) => {
         type: LIKE_PENGADUAN,
         payload: res.data,
       });
-      console.log(res.data);
     })
     .catch((err) => console.log(err));
 };
@@ -86,7 +85,6 @@ export const unlikePengaduan = (pengaduanId) => (dispatch) => {
         type: UNLIKE_PENGADUAN,
         payload: res.data,
       });
-      console.log(res.data);
     })
     .catch((err) => console.log(err));
 };
