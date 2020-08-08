@@ -3,9 +3,16 @@
   "name": "Portal Pengaduan PWA",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/book.png",
       "type": "image/png",
-      "sizes": "266x841"
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/book.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",

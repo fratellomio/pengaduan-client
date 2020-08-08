@@ -82,7 +82,9 @@ class PengaduanDialog extends Component {
       classes,
       pengaduan: {
         pengaduanId,
+        judul,
         body,
+        lokasi,
         createdAt,
         likeCount,
         commentCount,
@@ -103,17 +105,22 @@ class PengaduanDialog extends Component {
           <img src={userImage} alt='Profile' className={classes.profileImage} />
         </Grid>
         <Grid item sm={7}>
+          <Typography variant='h5'>{judul}</Typography>
           <Typography
             component={Link}
             color='primary'
-            variant='h5'
+            variant='body1'
             to={`/users/${userHandle}`}
           >
-            @{userHandle}
+            oleh {userHandle}
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant='body2' color='textSecondary'>
             {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
+          </Typography>
+          <hr className={classes.invisibleSeparator} />
+          <Typography variant='body2' color='textSecondary'>
+            Lokasi: {lokasi}
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant='body1'>{body}</Typography>

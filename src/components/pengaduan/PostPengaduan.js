@@ -35,7 +35,10 @@ const styles = (theme) => ({
 class PostPengaduan extends Component {
   state = {
     open: false,
+    judul: '',
     body: '',
+    lokasi: '',
+    tanggal: '',
     errors: {},
   };
   componentWillReceiveProps(nextProps) {
@@ -91,12 +94,34 @@ class PostPengaduan extends Component {
           <DialogContent>
             <form onSubmit={this.handleSubmit}>
               <TextField
+                name='judul'
+                type='text'
+                label='Judul'
+                placeholder='Judul pengaduan'
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textField}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
                 name='body'
                 type='text'
                 label='Pengaduan'
                 multiline
-                rows='3'
+                rows='5'
                 placeholder='isi pengaduan'
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textField}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                name='lokasi'
+                type='text'
+                label='Lokasi'
+                placeholder='Lokasi kejadian'
                 error={errors.body ? true : false}
                 helperText={errors.body}
                 className={classes.textField}

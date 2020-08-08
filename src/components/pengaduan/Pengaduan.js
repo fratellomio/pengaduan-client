@@ -61,6 +61,7 @@ class Pengaduan extends Component {
     const {
       classes,
       pengaduan: {
+        judul,
         body,
         createdAt,
         userImage,
@@ -87,13 +88,14 @@ class Pengaduan extends Component {
           className={classes.image}
         />
         <CardContent className={classes.content}>
+          <Typography variant='h5'>{judul}</Typography>
           <Typography
-            variant='h5'
+            variant='body1'
             component={Link}
             to={`/users/${userHandle}`}
             color={'primary'}
           >
-            {userHandle}
+            oleh {userHandle}
           </Typography>
           {deleteButton}
           <Typography variant='body2' color='textSecondary'>
