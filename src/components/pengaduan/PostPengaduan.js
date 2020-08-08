@@ -48,7 +48,14 @@ class PostPengaduan extends Component {
       });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      this.setState({ body: '', open: false, errors: {} });
+      this.setState({
+        body: '',
+        judul: '',
+        lokasi: '',
+        tanggal: '',
+        open: false,
+        errors: {},
+      });
     }
   }
   handleOpen = () => {
@@ -63,7 +70,13 @@ class PostPengaduan extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.postPengaduan({ body: this.state.body });
+    console.log(this.state);
+    this.props.postPengaduan({
+      judul: this.state.judul,
+      body: this.state.body,
+      lokasi: this.state.lokasi,
+      tanggal: this.state.tanggal,
+    });
   };
   render() {
     const { errors } = this.state;
@@ -98,8 +111,8 @@ class PostPengaduan extends Component {
                 type='text'
                 label='Judul'
                 placeholder='Judul pengaduan'
-                error={errors.body ? true : false}
-                helperText={errors.body}
+                error={errors.judul ? true : false}
+                helperText={errors.judul}
                 className={classes.textField}
                 onChange={this.handleChange}
                 fullWidth
@@ -122,8 +135,17 @@ class PostPengaduan extends Component {
                 type='text'
                 label='Lokasi'
                 placeholder='Lokasi kejadian'
-                error={errors.body ? true : false}
-                helperText={errors.body}
+                error={errors.lokasi ? true : false}
+                helperText={errors.lokasi}
+                className={classes.textField}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <TextField
+                name='tanggal'
+                type='date'
+                error={errors.tanggal ? true : false}
+                helperText={errors.tanggal}
                 className={classes.textField}
                 onChange={this.handleChange}
                 fullWidth

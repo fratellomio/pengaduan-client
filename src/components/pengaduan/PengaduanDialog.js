@@ -85,6 +85,7 @@ class PengaduanDialog extends Component {
         judul,
         body,
         lokasi,
+        tanggal,
         createdAt,
         likeCount,
         commentCount,
@@ -121,6 +122,9 @@ class PengaduanDialog extends Component {
           <hr className={classes.invisibleSeparator} />
           <Typography variant='body2' color='textSecondary'>
             Lokasi: {lokasi}
+          </Typography>
+          <Typography variant='body2' color='textSecondary'>
+            Tanggal Kejadian: {tanggal}
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant='body1'>{body}</Typography>
