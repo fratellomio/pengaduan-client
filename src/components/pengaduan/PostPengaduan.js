@@ -111,7 +111,7 @@ class PostPengaduan extends Component {
                 type='text'
                 label='Judul'
                 placeholder='Judul pengaduan'
-                error={errors.judul ? true : false}
+                error={errors.body ? true : false}
                 helperText={errors.judul}
                 className={classes.textField}
                 onChange={this.handleChange}
@@ -135,7 +135,7 @@ class PostPengaduan extends Component {
                 type='text'
                 label='Lokasi'
                 placeholder='Lokasi kejadian'
-                error={errors.lokasi ? true : false}
+                error={errors.body ? true : false}
                 helperText={errors.lokasi}
                 className={classes.textField}
                 onChange={this.handleChange}
@@ -144,7 +144,7 @@ class PostPengaduan extends Component {
               <TextField
                 name='tanggal'
                 type='date'
-                error={errors.tanggal ? true : false}
+                error={errors.body ? true : false}
                 helperText={errors.tanggal}
                 className={classes.textField}
                 onChange={this.handleChange}

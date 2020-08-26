@@ -88,7 +88,7 @@ export const unlikePengaduan = (pengaduanId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-// Submit a comment
+
 export const submitComment = (pengaduanId, commentData) => (dispatch) => {
   axios
     .post(`/pengaduan/${pengaduanId}/comment`, commentData)
